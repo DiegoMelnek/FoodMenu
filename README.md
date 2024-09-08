@@ -30,6 +30,31 @@ FoodMenu é uma API REST desenvolvida para gerenciar o cardápio de alimentos e 
 - **Atualizar usuário**: Editar as informações de um usuário.
 - **Excluir usuário**: Remover usuários do sistema.
 
+## Diagrama de Entidades
+
+```mermaid
+classDiagram
+    class Users {
+        +Long id
+        +String username
+        +String email
+        +int age
+        +String password
+        +String address
+    }
+
+    class FoodMenu {
+        +Long id
+        +String nameFood
+        +String descriptionFood
+        +Double valueFood
+        +String statusFood
+        +String typeFood
+    }
+
+    Users "1" --> "0..*" FoodMenu : "Gerencia"
+```
+
 ## Como Executar
 
 1. **Clone o repositório**:
