@@ -1,0 +1,36 @@
+# Configurações gerais
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+# Configurações específicas de perfil dev
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: ${{ meticulous-empathy.DATABASE_URL }}
+    username: dev_user
+    password: dev_password
+
+# Configurações específicas de perfil prod
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: jdbc:postgresql://localhost:5432/proddb
+    username: prod_user
+    password:
